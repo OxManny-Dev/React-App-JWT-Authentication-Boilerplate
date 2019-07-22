@@ -59,7 +59,7 @@ const jwtlogin = new JwtStrategy(jwtOptions, async (payload, done) => {
       done(null, user);
     } else {
       // if we didnt find a user
-      done(null, false)
+      done(null, false);
     }
   } catch(e) {
     done(e, false);

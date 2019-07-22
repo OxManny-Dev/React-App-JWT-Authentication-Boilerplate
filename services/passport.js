@@ -54,6 +54,7 @@ const jwtlogin = new JwtStrategy(jwtOptions, async (payload, done) => {
   try {
     const user = await User.findById(payload.sub);
     if(user) {
+      // 1st arg to done is an error object and the 2nd is the user if we found one
       // if we found a user
       done(null, user);
     } else {
@@ -61,15 +62,12 @@ const jwtlogin = new JwtStrategy(jwtOptions, async (payload, done) => {
       done(null, false)
     }
   } catch(e) {
-    // 1st arg to done is an error object and the 2nd is the user if we found one
     done(e, false);
   }
-  // if so called done with that user
 
-  // else call done without a user object
+
+
 });
-
-
 // Tells passport to use this strategy
 passport.use(jwtlogin);
 passport.use(localLogin);

@@ -1,7 +1,7 @@
 const express   = require('express');
 const morgan    = require('morgan');
 const mongoose  = require('mongoose');
-
+const cors      = require('cors');
 
 const app = express();
 
@@ -13,6 +13,7 @@ mongoose.connect('mongodb://localhost:auth/auth', { useNewUrlParser: true, useCr
 app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cors());
 
 
 // Routes setup
@@ -20,7 +21,7 @@ const routes = require('./routes');
 app.use(routes);
 
 // Server setup
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 
 app.listen(PORT, () => console.log(`Server started on PORT: ${PORT}`));

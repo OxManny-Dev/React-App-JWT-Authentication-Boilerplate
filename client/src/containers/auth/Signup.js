@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from './../../actions';
+import * as actions from '../../actions';
 
 
 class Signup extends Component {
   // Our onSubmit function in reduxForm first argument
   // the properties that the user has submitted from the form
   onSubmit = formProps => {
-    console.log(formProps)
-    this.props.signup(formProps)
+    console.log(formProps);
+    this.props.signup(formProps, () => {
+      // After the user signs in, we call the callback function
+      // to redirect to /feature
+      this.props.history.push('/feature');
+    });
+
   }
 
   render(){
@@ -38,6 +43,9 @@ class Signup extends Component {
             component='input'
             autoComplete='none'/>
         </fieldset>
+        <div>
+          {this.props.errorMessage}
+        </div>
         <button>Signup</button>
       </form>
     )
@@ -45,10 +53,15 @@ class Signup extends Component {
 }
 
 
+// Pull out the error message from our authReducer
+function mapStateToProps(state) {
+  return { errorMessage: state.auth.errorMessage };
+}
+
 // Redux form takes an options object.
 // The first key will be what you want to name the form
 
 export default compose(
-  connect(null, actions),
+  connect(mapStateToProps, actions),
   reduxForm({ form: 'signup'})
 )(Signup);

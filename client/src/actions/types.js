@@ -1,1 +1,1 @@
-export const { AUTH_USER } from './types';
+export const AUTH_USER = 'AUTH_USER';

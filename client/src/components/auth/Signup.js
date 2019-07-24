@@ -38,6 +38,7 @@ class Signup extends Component {
             component='input'
             autoComplete='none'/>
         </fieldset>
+        <button>Signup</button>
       </form>
     )
   }

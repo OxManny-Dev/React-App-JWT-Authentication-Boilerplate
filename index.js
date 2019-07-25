@@ -16,6 +16,12 @@ app.use(express.urlencoded({extended: true}));
 app.use(cors());
 
 
+// If we are in production, serve our clients build folder.
+// This folder is created during production
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 // Routes setup
 const routes = require('./routes');
 app.use(routes);

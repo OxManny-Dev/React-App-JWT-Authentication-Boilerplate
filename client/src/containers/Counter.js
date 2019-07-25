@@ -5,7 +5,9 @@ import * as actions from './../actions';
 import requireAuth from './../hoc/requireAuth';
 
 class Counter extends Component {
+
   render() {
+    console.log(this.props);
     return (
       <div>
         <p>Current counter state: {this.props.counter}</p>

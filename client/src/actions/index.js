@@ -24,6 +24,7 @@ export const signup = (formprops, callback) => async dispatch => {
     // We are getting our token back from res.data.token
     // We want to send this token to our reducer
     dispatch({ type: AUTH_USER, payload: res.data.token });
+    localStorage.setItem('token', res.data.token);
     callback();
   } catch(e) {
     // in case a user has signed up already,
@@ -32,4 +33,13 @@ export const signup = (formprops, callback) => async dispatch => {
     dispatch({ type: AUTH_ERROR, payload: 'Email in use' });
   }
 
+};
+
+
+export const signout = () => {
+  localStorage.removeItem('token');
+  return {
+    type: AUTH_USER,
+    payload: ''
+  };
 };

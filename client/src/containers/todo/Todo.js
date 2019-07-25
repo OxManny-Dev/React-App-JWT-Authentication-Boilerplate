@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { addTodo } from './../../actions';
+import validator from 'validator';
 
 class Todo extends Component {
 
@@ -83,9 +84,17 @@ class Todo extends Component {
 // that are in our form
 const validate = formValues => {
   const errors = {};
+  console.log('form', formValues);
+  // console.log(validator.isEmail(formValues.title));
   if(!formValues.title) {
   //
     errors.title = 'You must enter a title';
+  }
+
+  if(formValues.title) {
+    if(!validator.isEmail(formValues.title)) {
+      errors.title = 'check'
+    }
   }
 
   if(!formValues.description){

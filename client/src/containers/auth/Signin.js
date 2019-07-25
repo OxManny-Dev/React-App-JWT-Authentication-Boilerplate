@@ -18,7 +18,7 @@ class Signin extends Component {
 
   }
 
-  renderInput({ input }) {
+  renderInput = ({ input }) => {
     return <input {...input}/>
   }
   render(){

@@ -10,6 +10,14 @@ export const decrement = () => {
   return { type: DECREMENT_COUNTER };
 };
 
+export const addTodo = todo => async dispatch => {
+  const res = await axios.get('/api/todo/', {
+    headers: {
+      'authorization': localStorage.getItem('token')
+    }
+  });
+  console.log(res.data);
+};
 
 
 // We take the form props, and a callback function to call

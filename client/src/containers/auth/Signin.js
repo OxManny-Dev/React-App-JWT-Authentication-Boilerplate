@@ -18,6 +18,9 @@ class Signin extends Component {
 
   }
 
+  renderInput({ input }) {
+    return <input {...input}/>
+  }
   render(){
     // We are getting the handleSubmit function from reduxForm
     const { handleSubmit } = this.props;
@@ -32,7 +35,7 @@ class Signin extends Component {
           <Field
             name='email'
             type='text'
-            component='input'
+            component={this.renderInput}
             autoComplete='none'/>
         </fieldset>
         <fieldset>
@@ -40,7 +43,7 @@ class Signin extends Component {
           <Field
             name='password'
             type='password'
-            component='input'
+            component={this.renderInput}
             autoComplete='none'/>
         </fieldset>
         <div>

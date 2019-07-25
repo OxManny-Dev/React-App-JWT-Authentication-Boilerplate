@@ -1,13 +1,12 @@
 const router      = require('express').Router();
 const authRoutes  = require('./authRoutes');
+const todoRoutes  = require('./todoRoutes');
 
 const authMiddlewares = require('./../../middlewares/authMiddlewares');
 
-router.route('/')
-  .get(authMiddlewares.requireSignIn, (req, res) => {
-    res.send('Hi');
-  });
+
 
 router.use('/auth', authRoutes);
+router.use('/todo', todoRoutes);
 
 module.exports = router;

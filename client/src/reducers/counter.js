@@ -6,7 +6,6 @@ const INITIAL_STATE = {
 
 
 export default function(state = INITIAL_STATE, action) {
-  console.log(state);
   switch(action.type) {
     case INCREMENT_COUNTER:
       return {...state, counter: state.counter + 1};

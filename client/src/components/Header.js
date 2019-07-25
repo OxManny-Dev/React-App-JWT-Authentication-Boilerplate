@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   renderLinks(){
-    if(this.props.authenticated) {
+    if(this.props.auth) {
       return(
         <div>
           <Link to='/signout'>Sign out</Link>
           <Link to='/feature'>Feature</Link>
+          <Link to='/todo'>Todo</Link>
         </div>
       );
     } else {

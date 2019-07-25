@@ -11,6 +11,7 @@ import Signup from './containers/auth/Signup';
 import Signin from './containers/auth/Signin';
 import Signout from './containers/auth/Signout';
 import Counter from './containers/Counter';
+import Todo from './containers/todo/Todo';
 
 import reducers from './reducers';
 
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route exact path='/signup' component={Signup}/>
         <Route exact path='/signin' component={Signin}/>
         <Route exact path='/signout' component={Signout}/>
+        <Route exact path='/todo' component={Todo}/>
         <Route exact path='/feature' component={Counter}/>
       </App>
     </Router>

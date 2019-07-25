@@ -11,4 +11,11 @@ router.route('/signup')
 router.route('/signin')
   .post(authMiddlewares.requireSignIn, authController.signIn);
 
+
+
+router.route('/test')
+  .get(authMiddlewares.requireAuth, (req, res) => {
+    console.log(req.user);
+    res.send(req.user);
+  });
 module.exports = router;

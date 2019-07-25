@@ -3,11 +3,11 @@ import axios from 'axios';
 
 
 export const increment = () => {
-  return { type: INCREMENT_COUNTER};
+  return { type: INCREMENT_COUNTER };
 };
 
 export const decrement = () => {
-  return { type: DECREMENT_COUNTER};
+  return { type: DECREMENT_COUNTER };
 };
 
 
